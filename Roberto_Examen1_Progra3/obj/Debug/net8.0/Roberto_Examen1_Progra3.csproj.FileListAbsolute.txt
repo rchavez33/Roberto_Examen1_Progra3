@@ -1,0 +1,14 @@
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\obj\Debug\net8.0\Roberto_Examen1_Progra3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\obj\Debug\net8.0\Roberto_Examen1_Progra3.AssemblyInfoInputs.cache
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\obj\Debug\net8.0\Roberto_Examen1_Progra3.AssemblyInfo.cs
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\obj\Debug\net8.0\Roberto_Examen1_Progra3.csproj.CoreCompileInputs.cache
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\bin\Debug\net8.0\Roberto_Examen1_Progra3.exe
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\bin\Debug\net8.0\Roberto_Examen1_Progra3.deps.json
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\bin\Debug\net8.0\Roberto_Examen1_Progra3.runtimeconfig.json
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\bin\Debug\net8.0\Roberto_Examen1_Progra3.dll
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\bin\Debug\net8.0\Roberto_Examen1_Progra3.pdb
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\obj\Debug\net8.0\Roberto_Examen1_Progra3.dll
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\obj\Debug\net8.0\refint\Roberto_Examen1_Progra3.dll
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\obj\Debug\net8.0\Roberto_Examen1_Progra3.pdb
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\obj\Debug\net8.0\Roberto_Examen1_Progra3.genruntimeconfig.cache
+C:\Users\Safirox\Documents\Visual Studio 2022\Roberto_Examen1_Progra3\Roberto_Examen1_Progra3\obj\Debug\net8.0\ref\Roberto_Examen1_Progra3.dll
