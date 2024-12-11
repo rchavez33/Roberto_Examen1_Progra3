@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDEstudiantesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDEstudiantes.dbo.Direcciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Direcciones">
+    <Key>
+      <PropertyRef Name="Cedula" />
+      <PropertyRef Name="Pais" />
+      <PropertyRef Name="ProvinciaEstado" />
+      <PropertyRef Name="CantonDelegacion" />
+      <PropertyRef Name="CalleAvenida" />
+    </Key>
+    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="Pais" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProvinciaEstado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CantonDelegacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CalleAvenida" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estudiantes">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ApellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ApellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Foto" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="IDRol" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="IDRol" Type="int" Nullable="false" />
+    <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDEstudiantes.dbo.Telefonos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Telefonos">
+    <Key>
+      <PropertyRef Name="Cedula" />
+      <PropertyRef Name="CodPais" />
+      <PropertyRef Name="Telefono" />
+    </Key>
+    <Property Name="Cedula" Type="int" Nullable="false" />
+    <Property Name="CodPais" Type="int" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Clave" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Direccion__Cedul__6754599E">
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="1" />
+    <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiantes">
+        <PropertyRef Name="Cedula" />
+      </Principal>
+      <Dependent Role="Direcciones">
+        <PropertyRef Name="Cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Roles__ID__5165187F">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Telefonos__Cedul__656C112C">
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="1" />
+    <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiantes">
+        <PropertyRef Name="Cedula" />
+      </Principal>
+      <Dependent Role="Telefonos">
+        <PropertyRef Name="Cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ActualizarDato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tabla" Type="nvarchar" Mode="In" />
+    <Parameter Name="Set" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Condicion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IDUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ConsultarDato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tabla" Type="nvarchar" Mode="In" />
+    <Parameter Name="IDUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CrearDato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tabla" Type="nvarchar" Mode="In" />
+    <Parameter Name="Datos" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IDUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EliminarDato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tabla" Type="nvarchar" Mode="In" />
+    <Parameter Name="Condicion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IDUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="VerificarRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="Rol" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="BDEstudiantesModelStoreContainer">
+    <EntitySet Name="Estudiantes" EntityType="Self.Estudiantes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Direcciones" EntityType="Self.Direcciones" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Direcciones].[Cedula] AS [Cedula], 
+    [Direcciones].[Pais] AS [Pais], 
+    [Direcciones].[ProvinciaEstado] AS [ProvinciaEstado], 
+    [Direcciones].[CantonDelegacion] AS [CantonDelegacion], 
+    [Direcciones].[CalleAvenida] AS [CalleAvenida]
+    FROM [dbo].[Direcciones] AS [Direcciones]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Telefonos" EntityType="Self.Telefonos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Telefonos].[Cedula] AS [Cedula], 
+    [Telefonos].[CodPais] AS [CodPais], 
+    [Telefonos].[Telefono] AS [Telefono]
+    FROM [dbo].[Telefonos] AS [Telefonos]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Direccion__Cedul__6754599E" Association="Self.FK__Direccion__Cedul__6754599E">
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+      <End Role="Direcciones" EntitySet="Direcciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Roles__ID__5165187F" Association="Self.FK__Roles__ID__5165187F">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Telefonos__Cedul__656C112C" Association="Self.FK__Telefonos__Cedul__656C112C">
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+      <End Role="Telefonos" EntitySet="Telefonos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

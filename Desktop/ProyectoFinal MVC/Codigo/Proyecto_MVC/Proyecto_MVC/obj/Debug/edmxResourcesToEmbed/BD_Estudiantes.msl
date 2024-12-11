@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDEstudiantesModelStoreContainer" CdmEntityContainer="BDEstudiantesEntities">
+    <EntitySetMapping Name="Estudiantes">
+      <EntityTypeMapping TypeName="BDEstudiantesModel.Estudiantes">
+        <MappingFragment StoreEntitySet="Estudiantes">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="BDEstudiantesModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDRol" ColumnName="IDRol" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="BDEstudiantesModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Direcciones">
+      <EntityTypeMapping TypeName="BDEstudiantesModel.Direcciones">
+        <MappingFragment StoreEntitySet="Direcciones">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="ProvinciaEstado" ColumnName="ProvinciaEstado" />
+          <ScalarProperty Name="CantonDelegacion" ColumnName="CantonDelegacion" />
+          <ScalarProperty Name="CalleAvenida" ColumnName="CalleAvenida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefonos">
+      <EntityTypeMapping TypeName="BDEstudiantesModel.Telefonos">
+        <MappingFragment StoreEntitySet="Telefonos">
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="CodPais" ColumnName="CodPais" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ActualizarDato" FunctionName="BDEstudiantesModel.Store.ActualizarDato" />
+    <FunctionImportMapping FunctionImportName="ConsultarDato" FunctionName="BDEstudiantesModel.Store.ConsultarDato" />
+    <FunctionImportMapping FunctionImportName="CrearDato" FunctionName="BDEstudiantesModel.Store.CrearDato" />
+    <FunctionImportMapping FunctionImportName="EliminarDato" FunctionName="BDEstudiantesModel.Store.EliminarDato" />
+    <FunctionImportMapping FunctionImportName="VerificarRol" FunctionName="BDEstudiantesModel.Store.VerificarRol" />
+  </EntityContainerMapping>
+</Mapping>

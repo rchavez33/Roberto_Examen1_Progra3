@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a7af2eb23f7e43739da0f7717f51448b" Name="Diagram1">
+        <EntityTypeShape EntityType="BDEstudiantesModel.Estudiantes" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEstudiantesModel.Roles" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEstudiantesModel.Usuarios" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEstudiantesModel.Direcciones" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDEstudiantesModel.Telefonos" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="BDEstudiantesModel.FK__Direccion__Cedul__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="BDEstudiantesModel.FK__Telefonos__Cedul__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="BDEstudiantesModel.FK__Roles__ID__5165187F" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

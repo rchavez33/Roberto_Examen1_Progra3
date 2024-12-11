@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDEstudiantesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Estudiantes">
+    <Key>
+      <PropertyRef Name="Cedula" />
+    </Key>
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Direcciones" Relationship="Self.FK__Direccion__Cedul__6754599E" FromRole="Estudiantes" ToRole="Direcciones" />
+    <NavigationProperty Name="Telefonos" Relationship="Self.FK__Telefonos__Cedul__656C112C" FromRole="Estudiantes" ToRole="Telefonos" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="IDRol" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="IDRol" Type="Int32" Nullable="false" />
+    <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Roles__ID__5165187F" FromRole="Roles" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK__Roles__ID__5165187F" FromRole="Usuarios" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Direcciones">
+    <Key>
+      <PropertyRef Name="Cedula" />
+      <PropertyRef Name="Pais" />
+      <PropertyRef Name="ProvinciaEstado" />
+      <PropertyRef Name="CantonDelegacion" />
+      <PropertyRef Name="CalleAvenida" />
+    </Key>
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProvinciaEstado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CantonDelegacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CalleAvenida" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK__Direccion__Cedul__6754599E" FromRole="Direcciones" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="Telefonos">
+    <Key>
+      <PropertyRef Name="Cedula" />
+      <PropertyRef Name="CodPais" />
+      <PropertyRef Name="Telefono" />
+    </Key>
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="CodPais" Type="Int32" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Estudiantes" Relationship="Self.FK__Telefonos__Cedul__656C112C" FromRole="Telefonos" ToRole="Estudiantes" />
+  </EntityType>
+  <Association Name="FK__Direccion__Cedul__6754599E">
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="1" />
+    <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiantes">
+        <PropertyRef Name="Cedula" />
+      </Principal>
+      <Dependent Role="Direcciones">
+        <PropertyRef Name="Cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Telefonos__Cedul__656C112C">
+    <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="1" />
+    <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiantes">
+        <PropertyRef Name="Cedula" />
+      </Principal>
+      <Dependent Role="Telefonos">
+        <PropertyRef Name="Cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Roles__ID__5165187F">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDEstudiantesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Estudiantes" EntityType="Self.Estudiantes" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <EntitySet Name="Direcciones" EntityType="Self.Direcciones" />
+    <EntitySet Name="Telefonos" EntityType="Self.Telefonos" />
+    <AssociationSet Name="FK__Direccion__Cedul__6754599E" Association="Self.FK__Direccion__Cedul__6754599E">
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+      <End Role="Direcciones" EntitySet="Direcciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Telefonos__Cedul__656C112C" Association="Self.FK__Telefonos__Cedul__656C112C">
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+      <End Role="Telefonos" EntitySet="Telefonos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Roles__ID__5165187F" Association="Self.FK__Roles__ID__5165187F">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <FunctionImport Name="ActualizarDato">
+      <Parameter Name="Tabla" Mode="In" Type="String" />
+      <Parameter Name="Set" Mode="In" Type="String" />
+      <Parameter Name="Condicion" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ConsultarDato">
+      <Parameter Name="Tabla" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CrearDato">
+      <Parameter Name="Tabla" Mode="In" Type="String" />
+      <Parameter Name="Datos" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarDato">
+      <Parameter Name="Tabla" Mode="In" Type="String" />
+      <Parameter Name="Condicion" Mode="In" Type="String" />
+      <Parameter Name="IDUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="VerificarRol">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="Rol" Mode="InOut" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>
